@@ -96,17 +96,5 @@
             "question": "Can I avail financial aid? ",
             "answer": "You currently can't get a federal aid for Saras AI Institute's programs. However, we are partnering with lenders who can help facilitate a loan to help pay the tuition."
         }
-    ],
-    "Payment": [
-        {
-            "question": "How can I check my payment status?",
-            "answer": "You can check your payment status by logging into your account and navigating to the 'Payments' section."
-        }
-    ],
-    "Bokachodi": [
-        {
-            "question": "How can I do bakchodi?",
-            "answer": "Just be with suru for 1 hr, you'll know how easy it is to do bakchodi without any valid reason."
-        }
     ]
 }
