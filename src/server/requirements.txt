@@ -1,0 +1,6 @@
+django 
+djangorestframework
+sentence-transformers
+scikit-learn
+pandas
+numpy
