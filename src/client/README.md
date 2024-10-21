@@ -1,4 +1,4 @@
-# saras_faqs
+# SARAS AI FAQs
 
 A new Flutter project.
 
