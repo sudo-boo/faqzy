@@ -1,4 +1,4 @@
-# Sarcathon-2024
+# Sarcathon-2024 : Hackathon
 
 ## Gettings Started
 This contains all of our solution's source code. The project is a mono repo, which means that all of the code is in one repository. This makes managing dependencies and sharing code between different project parts easier.
