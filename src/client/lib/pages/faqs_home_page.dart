@@ -123,23 +123,10 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     const SizedBox(height: 10,),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: FAQItem(
-                        title: Text(
-                          '${bestMatch!['question']}',
-                          style: const TextStyle(fontWeight: FontWeight.w600),
-                        ),
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              '${bestMatch!['answer']}',
-                              textAlign: TextAlign.start,
-                            ),
-                          ),
-                        ],
-                      ),
+                    FAQItem(
+                      category: bestMatch!['category'],
+                      question: bestMatch!['question'],
+                      answer: bestMatch!['answer'],
                     ),
                   ],
                 )
@@ -151,28 +138,25 @@ class _HomePageState extends State<HomePage> {
 
               const SizedBox(height: 20),
 
-              // Display "See Also" section using FAQItem widget
               if (seeAlso != null && seeAlso!.isNotEmpty) ...[
                 const Text('See Also:', style: TextStyle(fontSize: 18)),
                 const SizedBox(height: 8),
-                ...seeAlso!.map((question) {
-                  return FAQItem(
-                    title: Text(
-                      question['question'],
-                      style: const TextStyle(fontWeight: FontWeight.w600),
-                    ),
+                ...seeAlso!.asMap().entries.map((entry) {
+                  int index = entry.key;
+                  var question = entry.value;
+                  return Column(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          'Answer: ${question['answer']}',
-                          textAlign: TextAlign.start,
-                        ),
+                      FAQItem(
+                        category: question!['category'],
+                        question: question!['question'],
+                        answer: question!['answer'],
                       ),
+                      if (index != seeAlso!.length - 1) const Divider(),
                     ],
                   );
                 }).toList(),
               ],
+              const SizedBox(height: 20),
             ],
           ),
         ),

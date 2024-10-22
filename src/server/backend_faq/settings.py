@@ -27,9 +27,10 @@ SECRET_KEY = 'django-insecure-je)vv91^&$!-_y7ak(kofn8y2sea8zexoq26fl82jrx8379nos
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'sarcathon.onrender.com',
+    'sarcathon-dn7x.onrender.com',
     'localhost',
-    '127.0.0.1'
+    '127.0.0.1',
+    '10.0.2.2',
 ]
 
 
