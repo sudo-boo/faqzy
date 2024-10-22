@@ -19,16 +19,14 @@ sarcathon-2024/
 │   ├── demo_video.mp4
 │   └── demo_images/
 │
+│
 ├── src/
 │   ├── client/                # Frontend Flutter application
 │   └── server/                # Backend Django application
 │
-├── tests/                     # Contains larger datasets and tests  to
+├── Presentation.pptx          # Presentation of our Solution
+├── test/                      # Contains larger datasets and tests to
 │                              # test the performance of the system
-│
-├── k8s/                       # Kubernetes configuration files
-│   ├── deployment.yaml
-│   └── service.yaml
 │
 ├── Dockerfile                 # Dockerfile for containerizing the project
 ├── README.md                  # Project overview and setup instructions
@@ -55,7 +53,10 @@ Connect your iPhone or iOS emulator, build and install it using
 ```flutter
 flutter install
 ```
+> Note: The server address by default is set to `localhost:8000`. You might want to change that and rebuild.
 
+
+<be>
 
 ### Backend
 To run the backend, `cd` to the server source code folder
