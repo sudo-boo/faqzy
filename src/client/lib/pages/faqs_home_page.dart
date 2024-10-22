@@ -6,7 +6,6 @@ import 'package:saras_faqs/utils/colors.dart';
 import 'package:saras_faqs/utils/faq_item.dart';
 import 'package:saras_faqs/utils/answer_results_item.dart';
 
-
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -18,6 +17,7 @@ class _HomePageState extends State<HomePage> {
   String _responseText = 'Your search results here...';
   Map<String, dynamic>? bestMatch;
   List<dynamic>? seeAlso;
+  String? searchTime;
   final TextEditingController _queryController = TextEditingController();
 
   @override
@@ -39,6 +39,7 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               const Text('Ask a Question:', style: TextStyle(fontSize: 18)),
+              const SizedBox(height: 15),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
@@ -62,6 +63,7 @@ class _HomePageState extends State<HomePage> {
                         bestMatch = result.bestMatch;
                         seeAlso = result.seeAlso;
                         _responseText = result.responseText;
+                        searchTime = result.timeTaken;
                       });
                     } else {
                       setState(() {
@@ -71,9 +73,9 @@ class _HomePageState extends State<HomePage> {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: sarasOrange,
-                    padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 20.0),
+                    padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 30.0),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
+                      borderRadius: BorderRadius.circular(12.0),
                     ),
                   ),
                   child: const Text(
@@ -83,20 +85,45 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 30),
 
               // Display the best match using FAQItem widget
-              const Text("Best Match", style: TextStyle(fontSize: 18)),
               if (bestMatch != null)
-                FAQItem(
-                  title: Text(
-                    '${bestMatch!['question']}',
-                    style: const TextStyle(fontWeight: FontWeight.w600),
-                  ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Found results in $searchTime seconds...",
+                        style: const TextStyle(fontSize: 12),
+                      ),
+                    ),
+                    const SizedBox(height: 10,),
+                    const Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text("Best Match",
+                          style: TextStyle(
+                              fontSize: 20,
+                            fontWeight: FontWeight.w600
+                          )
+                      ),
+                    ),
+                    const SizedBox(height: 10,),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text('${bestMatch!['answer']}'),
+                      child: FAQItem(
+                        title: Text(
+                          '${bestMatch!['question']}',
+                          style: const TextStyle(fontWeight: FontWeight.w600),
+                        ),
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text('${bestMatch!['answer']}'),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 )
