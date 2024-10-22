@@ -3,12 +3,13 @@
 import 'dart:core';
 import 'config.dart';
 import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:saras_faqs/utils/answer_results_item.dart';
 
 // Function to make the HTTP POST request
 Future<AnswerResult> getAnswer(String query) async {
-  final Stopwatch stopwatch = Stopwatch()..start(); // Start the stopwatch
+  final Stopwatch stopwatch = Stopwatch()..start();
 
   try {
     final Map<String, dynamic> body = {"query": query};
@@ -57,6 +58,44 @@ Future<AnswerResult> getAnswer(String query) async {
       seeAlso: [],
       responseText: 'Failed to connect to the server: $e',
       timeTaken: '0.0000',
+    );
+  }
+}
+
+
+
+Future<void> submitQuery(
+    BuildContext context,
+    String question,
+    String answer,
+    String category,
+    ) async {
+  // Construct the request body
+  final Map<String, dynamic> body = {
+    'question': question,
+    'answer': answer,
+    'category': category,
+  };
+
+  // Perform the POST request
+  final response = await http.post(
+    Uri.parse(userAddQuery), // Replace with your API endpoint
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: json.encode(body),
+  );
+
+  // Handle the response
+  if (response.statusCode == 201) {
+    // Successfully submitted
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Query submitted successfully!')),
+    );
+  } else {
+    // Handle error
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Failed to submit query: ${response.reasonPhrase}')),
     );
   }
 }

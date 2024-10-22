@@ -2,6 +2,7 @@
 
 import 'package:saras_faqs/apis.dart';
 import 'package:flutter/material.dart';
+import 'package:saras_faqs/pages/add_new_query_page.dart';
 import 'package:saras_faqs/utils/colors.dart';
 import 'package:saras_faqs/utils/faq_item.dart';
 import 'package:saras_faqs/utils/answer_results_item.dart';
@@ -31,7 +32,19 @@ class _HomePageState extends State<HomePage> {
             const Text('FAQs'),
           ],
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.add),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AddNewQueryPage()),
+              );
+            },
+          ),
+        ],
       ),
+
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -104,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                       alignment: Alignment.centerLeft,
                       child: Text("Best Match",
                           style: TextStyle(
-                              fontSize: 20,
+                            fontSize: 20,
                             fontWeight: FontWeight.w600
                           )
                       ),
@@ -120,7 +133,10 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Text('${bestMatch!['answer']}'),
+                            child: Text(
+                              '${bestMatch!['answer']}',
+                              textAlign: TextAlign.start,
+                            ),
                           ),
                         ],
                       ),
@@ -148,7 +164,10 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text('Answer: ${question['answer']}'),
+                        child: Text(
+                          'Answer: ${question['answer']}',
+                          textAlign: TextAlign.start,
+                        ),
                       ),
                     ],
                   );
