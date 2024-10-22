@@ -1,0 +1,11 @@
+# General
+.DS_Store                    # macOS system file
+Thumbs.db                    # Windows system file
+*.log                        # Log files
+*.env                        # Environment variable files
+*.sqlite3                    # SQLite database file
+
+# Byte-compiled / optimized / DLL files
+__pycache__/                 
+*.py[cod]                    
+*.so    
