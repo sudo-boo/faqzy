@@ -1,1 +1,1 @@
-web: gunicorn <sarcathon>.wsgi:application --log-file -
+web: gunicorn <backend_faq>.wsgi:application --log-file -
