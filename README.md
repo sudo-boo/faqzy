@@ -43,6 +43,11 @@ Clone the repository onto your local machine
 git clone https://github.com/sudo-boo/sarcathon-2024.git
 ```
 ### Frontend
+
+> The frontend is currently displayed and used as an application but can be deployed for web too since we use flutter..!!
+
+For now, to test it for,
+
 **Android**: Just install the `.apk` file provided in the Releases section of the repository. Otherwise, you can follow the same steps given below to build and install it for Android too.
 
 **iOS**: If you want to test it for iOS, `cd` to the client source code folder
