@@ -1,4 +1,4 @@
-# Sarcathon-2024 : Hackathon
+<h1 align="center">FAQzy</h1>
 
 ## Gettings Started
 This contains all of our solution's source code. The project is a mono repo, which means that all of the code is in one repository. This makes managing dependencies and sharing code between different project parts easier.
@@ -6,14 +6,14 @@ This contains all of our solution's source code. The project is a mono repo, whi
 <hr>
 
 ## See Demo
-Explore the `./Demo` folder for a preview of the solution in action. We recommend watching the demo once to better understand the project's workflows and features.
+Explore the `./Demo` folder to preview the solution in action. We recommend watching the demo once to better understand the project's workflows and features.
 
 <hr>
 
 ## Directory Structure
 
 ```bash
-sarcathon-2024/
+faqzy/
 │
 ├── Demo/                     # Demo files showcasing the project
 │   ├── demo_video.mp4
@@ -40,7 +40,7 @@ sarcathon-2024/
 
 Clone the repository onto your local machine
 ```bash
-git clone https://github.com/sudo-boo/sarcathon-2024.git
+git clone https://github.com/sudo-boo/faqzy.git
 ```
 ### Frontend
 
@@ -52,7 +52,7 @@ For now, to test it for,
 
 **iOS**: If you want to test it for iOS, `cd` to the client source code folder
 ```bash
-cd sarcathon-2024/src/client/
+cd faqzy/src/client/
 ```
 Connect your iPhone or iOS emulator, build and install it using
 ```flutter
@@ -66,7 +66,7 @@ flutter install
 ### Backend
 To run the backend, `cd` to the server source code folder
 ```bash
-cd sarcathon-2024/src/server/
+cd faqzy/src/server/
 ```
 Create a virtual environment and turn it on
 ```python
